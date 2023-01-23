@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package session.v1;
+
+option go_package = "internal/grpc";
+
+import "google/protobuf/empty.proto";
+
+service SessionService {
+  rpc CreateSession(CreateSessionRequest) returns (google.protobuf.Empty);
+  rpc GetSession(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
+message CreateSessionRequest {
+  string name = 1;
+  string password = 2;
+}
